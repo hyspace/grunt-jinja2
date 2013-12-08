@@ -1,0 +1,43 @@
+{
+  "name": "grunt-jinja2",
+  "description": "render jinja2 template to html using original jinja2 (in python)",
+  "version": "0.1.0",
+  "homepage": "https://github.com/hyspace/grunt-jinja2",
+  "author": {
+    "name": "shan zhou",
+    "email": "hyspace@gmail.com",
+    "url": "http://little33.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hyspace/grunt-jinja2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hyspace/grunt-jinja2/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/hyspace/grunt-jinja2/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

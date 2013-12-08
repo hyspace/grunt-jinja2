@@ -1,0 +1,1 @@
+{{ photographer.last_name }}
