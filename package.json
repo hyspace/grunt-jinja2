@@ -1,7 +1,7 @@
 {
   "name": "grunt-jinja2",
   "description": "render jinja2 template to html using original jinja2 (in python)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/hyspace/grunt-jinja2",
   "author": {
     "name": "shan zhou",
