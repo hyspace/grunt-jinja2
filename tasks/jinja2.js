@@ -13,7 +13,39 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
   var path = require('path');
-  var jinja2ShellPath = 'bin/jinja2_shell.py'
+  var Bin = require('bin-wrapper');
+
+  var opts = {
+    name: 'jinja2_shell',
+    bin: 'jinja2_shell.py',
+    path: 'bin',
+    url: 'https://github.com/hyspace/grunt-jinja2',
+    src: 'https://raw.github.com/hyspace/grunt-jinja2/master/bin/jinja2_shell.py',
+    buildScript: 'echo ** You need python 2.7 installed. **',
+    platform: {
+      darwin: {
+        url: 'https://raw.github.com/hyspace/grunt-jinja2/master/bin/jinja2_shell.py'
+      },
+      freebsd: {
+        url: 'https://raw.github.com/hyspace/grunt-jinja2/master/bin/jinja2_shell.py',
+      },
+      linux: {
+        url: 'https://raw.github.com/hyspace/grunt-jinja2/master/bin/jinja2_shell.py',
+      },
+      sunos: {
+        url: 'https://raw.github.com/hyspace/grunt-jinja2/master/bin/jinja2_shell.py',
+      },
+    }
+  }
+  var bin = new Bin(opts);
+
+  bin.check('--version', function (works) {
+      if (!works) {
+          console.log('Run Python Script Error. You need python 2.7 installed.');
+      }
+  });
+
+  var jinja2ShellPath = bin.path
 
   grunt.registerMultiTask('jinja2', 'render jinja2 template to html using original jinja2 (in python)', function() {
     // Merge task-specific and/or target-specific options with these defaults.
