@@ -2,8 +2,8 @@
 
 """jinja2 shell
 Usage:
-  jinja2_shell.py (-t <template_file_path>)
-                  [-d <data_file_path>] [-b <base_path>]
+  jinja2_shell.py (-t <template_file_path>) (-b <base_path>)
+                  [-d <data_file_path>]
   jinja2_shell.py (-h | --help)
   jinja2_shell.py --version
 
@@ -17,11 +17,9 @@ Options:
 from docopt import docopt
 import jinja2, json, sys
 
-def render(template_file_path, data_file_path=None, base_path=None):
-  if not template_file_path:
+def render(template_file_path=None, data_file_path=None, base_path=None):
+  if not template_file_path or not base_path:
     sys.exit('command error.')
-  if not base_path:
-    base_path = 'templates'
   env = jinja2.Environment(loader=jinja2.FileSystemLoader(base_path))
   template = env.get_template(template_file_path)
   if data_file_path:

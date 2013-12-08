@@ -1,4 +1,4 @@
-{% extends "module/base.html" %}
+{% extends "module/base.tpl" %}
 
 {% block title %}
 {{ photographer.first_name }}

@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         files:[{
           expand: true,
           cwd: 'test/fixtures/templates',
-          src: ['*.html'],
+          src: ['*.tpl'],
           dest: 'tmp',
           ext: '.html'
         }]
