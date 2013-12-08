@@ -2,6 +2,8 @@
 
 > render jinja2 template to html using original jinja2 (in python)
 
+NO WINDOWS SUPPORT
+
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
 
