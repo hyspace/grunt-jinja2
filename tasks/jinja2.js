@@ -18,7 +18,7 @@ module.exports = function(grunt) {
   var opts = {
     name: 'jinja2_shell',
     bin: 'jinja2_shell.py',
-    path: 'bin',
+    path: path.join(__dirname, '../bin'),
     url: 'https://github.com/hyspace/grunt-jinja2',
     src: 'https://raw.github.com/hyspace/grunt-jinja2/master/bin/jinja2_shell.py',
     buildScript: 'echo ** You need python 2.7 installed. **',
@@ -81,6 +81,7 @@ module.exports = function(grunt) {
           return true;
         }
     });
+
     async.forEach(valid_files, function(f, cb) {
       //ignore multi src files
       var src = f.src[0];
@@ -95,14 +96,16 @@ module.exports = function(grunt) {
       if (use_context){
         args.push('-d', context_path)
       }
-
+      // grunt.log.writeln(template_path, context_path, args);
       //run python command
-      grunt.util.spawn({
+      var child = grunt.util.spawn({
           cmd: jinja2ShellPath,
-          args: args
+          args: args,
+          // opts: {stdio: 'inherit'}
       }, function (error, result, code) {
         if (error) {
           grunt.log.warn('Error occured in rendering file "' + f.dest + '". message below:');
+          grunt.log.warn(error)
           return cb(error);
         }else if(result){
           grunt.file.write(f.dest, result.stdout);

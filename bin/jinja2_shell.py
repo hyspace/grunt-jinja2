@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """jinja2 shell
 Usage:
@@ -16,6 +17,9 @@ Options:
 
 from docopt import docopt
 import jinja2, json, sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def render(template_file_path=None, data_file_path=None, base_path=None):
   if not template_file_path or not base_path:
