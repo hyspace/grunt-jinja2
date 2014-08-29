@@ -52,6 +52,8 @@ Default value: `context`
 
 the src path (relative to template_path) + context_path should be the path of .json context file.
 
+NOTE: the .json file must be the same name as your template name, eg: `index.html` will use the context of `index.json` as its context.
+
 
 ### Usage Examples
 
