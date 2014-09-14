@@ -11,3 +11,8 @@ link
 {% block content %}
 {{photographer.user_id}}
 {% endblock %}
+
+{% block globalContext %}
+{{photographer.user_id}}
+{{globalVar.var1}}
+{% endblock %}

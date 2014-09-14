@@ -16,7 +16,7 @@ Options:
 
 
 from docopt import docopt
-import jinja2, json, sys
+import jinja2, json, sys, re
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -27,7 +27,10 @@ def render(template_file_path=None, data_file_path=None, base_path=None):
   env = jinja2.Environment(loader=jinja2.FileSystemLoader(base_path))
   template = env.get_template(template_file_path)
   if data_file_path:
-    context = json.loads(open(data_file_path).read())
+    file_paht_list = re.split(',\s*',data_file_path)
+    context = {}
+    for filePath in file_paht_list:
+          context = dict((json.loads(open(filePath).read())).items()+context.items())
   else:
     context = {}
   print template.render(context)

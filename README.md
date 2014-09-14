@@ -54,6 +54,12 @@ the src path (relative to template_path) + context_path should be the path of .j
 
 NOTE: the .json file must be the same name as your template name, eg: `index.html` will use the context of `index.json` as its context.
 
+#### options.global_context_file (optional)
+Tpye: `String`
+Default value: `null`
+
+When provide this option like this: `"global_context_file" : "my_global_context.json"`. The context of `my_global_context.json` will apply to all rendered tempates. 
+
 
 ### Usage Examples
 
@@ -81,6 +87,7 @@ grunt.initConfig({
       options: {
         template_path: 'test/fixtures/templates',
         context_path: 'test/fixtures/context',
+        global_context_file : "test/fixures/global.json"
       },
       files:[{
         expand: true,

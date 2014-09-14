@@ -34,6 +34,7 @@ module.exports = function(grunt) {
         options: {
           template_path: 'test/fixtures/templates',
           context_path: 'test/fixtures/context',
+          global_context_file: 'test/fixtures/context/global.json'
         },
         files:[{
           expand: true,

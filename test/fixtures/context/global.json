@@ -1,0 +1,8 @@
+{
+    "photographer": {
+        "user_id": "userID_from_global.json"
+    },
+    "globalVar": {
+        "var1": "value of global var1"
+    }
+}
