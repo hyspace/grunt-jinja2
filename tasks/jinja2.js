@@ -91,10 +91,19 @@ module.exports = function(grunt) {
       var context_path = options.context_path + template_path.replace(/\.\w+$/,'.json')
       //test context file
       var use_context = grunt.file.exists(context_path) && grunt.file.readJSON(context_path)
+      //global context file
+      var global_context_file = options.global_context_file
 
       var args = ['-t', template_path, '-b', options.template_path]
-      if (use_context){
+      if (use_context && global_context_file){
+        var combinedPath = context_path + "," + global_context_file
+        // args.push('-d', combinedPath)
+        args.push('-d', combinedPath)
+        console.log("combinedPath", combinedPath);
+      } else if(use_context) {
         args.push('-d', context_path)
+      } else if(global_context_file) {
+        args.push('-d', global_context_file)
       }
       // grunt.log.writeln(template_path, context_path, args);
       //run python command

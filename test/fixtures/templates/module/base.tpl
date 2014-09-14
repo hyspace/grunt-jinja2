@@ -5,3 +5,4 @@ html
 456
 {% include 'module/header.tpl' %}
 {% block content %}{% endblock %}
+{% block globalContext %}{% endblock %}
